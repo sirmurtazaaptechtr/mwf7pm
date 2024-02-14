@@ -87,11 +87,47 @@ echo "</pre>";
 
     echo "<pre>";
     print_r($bfm);
-    echo "</pre>";   
+    echo "</pre>";
 
     
-    
     ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    </head>
+    <body>
+      <table>
+        <thead>
+          <tr>
+            <th>sr.no.</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          foreach($bfm as $i => $m) {         
+          ?>
+          <tr>
+            <td><?php echo ($i+1); ?></td>
+            <td><?php echo $m->name; ?></td>
+            <td><?php echo $m->price; ?></td>
+            <td><?php echo $m->description; ?></td>
+            <td><?php echo $m->calories; ?></td>
+          </tr>
+          <?php
+          }
+          ?>
+        </tbody>
+      </table>
+      
+    </body>
+    </html>
 
 
 
