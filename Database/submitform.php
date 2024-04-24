@@ -1,6 +1,5 @@
 <?php 
-    require("functions.php");
-    require("connection.php");
+    require("header.php");    
     $name = $email = $url = $address = $gender = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,11 +10,11 @@
         $gender = safe_input($_POST["gender"]);
     }
 
-    $insert_sql = "INSERT INTO forms (name, email, website, comments, gender) VALUES ('$name', '$email', '$url', '$address', '$gender')";
+    $insert_sql = "INSERT INTO forms (name, email, website, address, gender) VALUES ('$name', '$email', '$url', '$address', '$gender')";
 
     if(mysqli_query($conn,$insert_sql)) {
         echo "1 record inserted";
-        header("Location: forms.php");
+        header("Location: allforms.php");
         exit;
     }else {
         echo "0 record inserted";
