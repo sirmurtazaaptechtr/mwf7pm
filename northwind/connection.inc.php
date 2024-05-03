@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     $hostname = "localhost";
     $username = "root";
     $password = "";
@@ -11,3 +13,10 @@
     }else {
         echo "<p>$database is connected successfully!</p>";
     }
+
+    function safe_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
